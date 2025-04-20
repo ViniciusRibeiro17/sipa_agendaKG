@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
+import 'views/home_view.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(AgendaSipaApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class AgendaSipaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      title: 'Agenda Sipá',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.deepOrange, fontFamily: 'Arial'),
+      home: HomeView(),
     );
   }
 }
