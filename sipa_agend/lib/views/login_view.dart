@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'calendar_view.dart';
 
 class LoginView extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
-      backgroundColor: Color(0xFFF9CBA1),
-      appBar: AppBar(backgroundColor: Color(0xFF7B5EA7), title: Text('Login')),
+      backgroundColor: const Color(0xFFF9CBA1),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF7B5EA7),
+        title: const Text('Login'),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -17,11 +22,14 @@ class LoginView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Faça seu Login',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
@@ -31,7 +39,7 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -42,31 +50,28 @@ class LoginView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
-                    // No login real, aqui faria verificação
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => CalendarView()),
+                      MaterialPageRoute(builder: (context) => const CalendarView()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF7B5EA7),
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    backgroundColor: const Color(0xFF7B5EA7),
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: Text('Entrar'),
+                  child: const Text('Entrar'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextButton(
-                  onPressed: () {
-                    // ação para esqueci minha senha
-                  },
-                  child: Text('Esqueceu a senha?'),
-                ),
+                  onPressed: () {},
+                  child: const Text('Esqueceu a senha?'),
+                )
               ],
             ),
           ),

@@ -3,16 +3,18 @@ import 'login_view.dart';
 import 'register_view.dart';
 
 class HomeView extends StatelessWidget {
+  const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9CBA1), // Cor do fundo aproximada
+      backgroundColor: const Color(0xFFF9CBA1),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Agenda Sipá',
                 style: TextStyle(
                   fontSize: 24,
@@ -20,56 +22,76 @@ class HomeView extends StatelessWidget {
                   color: Colors.deepOrange,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Image.asset(
-                'assets/logo.png', // Vamos colocar o logo aqui depois
+                'assets/logo.png',
                 height: 150,
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Bem-Vindo!',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginView()),
+                    MaterialPageRoute(builder: (context) => const LoginView()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF7B5EA7),
+                  backgroundColor: const Color(0xFF7B5EA7),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 ),
-                child: Text('Entrar na Conta'),
+                child: const Text(
+                  'Entrar na Conta',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => RegisterView()),
+                    MaterialPageRoute(builder: (context) => const RegisterView()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF7B5EA7),
+                  backgroundColor: const Color(0xFF7B5EA7),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 ),
-                child: Text('Cadastre-se'),
+                child: const Text(
+                  'Cadastre-se',
+                  style: TextStyle(
+                    color: Colors.yellow,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextButton(
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   'Ajuda',
-                  style: TextStyle(decoration: TextDecoration.underline),
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ],

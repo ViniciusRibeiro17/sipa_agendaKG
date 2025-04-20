@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'calendar_view.dart';
 
 class RegisterView extends StatelessWidget {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController = TextEditingController();
+
     return Scaffold(
-      backgroundColor: Color(0xFFF9CBA1),
+      backgroundColor: const Color(0xFFF9CBA1),
       appBar: AppBar(
-        backgroundColor: Color(0xFF7B5EA7),
-        title: Text('Cadastro'),
+        backgroundColor: const Color(0xFF7B5EA7),
+        title: const Text('Cadastro'),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -23,11 +24,14 @@ class RegisterView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Crie sua Conta',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 TextField(
                   controller: nameController,
                   decoration: InputDecoration(
@@ -37,7 +41,7 @@ class RegisterView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
@@ -47,7 +51,7 @@ class RegisterView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -58,7 +62,7 @@ class RegisterView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextField(
                   controller: confirmPasswordController,
                   obscureText: true,
@@ -69,23 +73,22 @@ class RegisterView extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
-                    // No cadastro real, aqui faria verificação
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => CalendarView()),
+                      MaterialPageRoute(builder: (context) => const CalendarView()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF7B5EA7),
-                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    backgroundColor: const Color(0xFF7B5EA7),
+                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: Text('Cadastrar'),
+                  child: const Text('Cadastrar'),
                 ),
               ],
             ),
