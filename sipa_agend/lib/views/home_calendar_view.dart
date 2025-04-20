@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sipa_agend/views/home_view.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../models/task_model.dart';
 import 'task_list_view.dart';
@@ -27,17 +28,42 @@ class _HomeCalendarViewState extends State<HomeCalendarView> {
       title: 'Levar o lixo para fora',
       description: 'Levar o lixo da cozinha para fora.',
     ),
+    TaskModel(
+      title: 'Guardar Louça',
+      description: 'Colocar a louça seca no armário'
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text('Agenda Sipa', style: TextStyle(color: Colors.orange,),),
+        backgroundColor: Colors.black,
+        actions: [
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert),
+            itemBuilder: (context) => [
+            PopupMenuItem(child: ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Sair'),
+              onTap: (){
+                Navigator.pushAndRemoveUntil(context,
+                MaterialPageRoute(builder: (context) => HomeView()),
+                (Route<dynamic> route) => false,);
+              },
+            ),)]
+          ),
+        ],
+      ),
       backgroundColor: const Color(0xFFFFA500),
       body: Column(
         children: [
-          const SizedBox(height: 40),
+          const SizedBox(height: 0),
           _buildCalendar(),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
@@ -53,6 +79,7 @@ class _HomeCalendarViewState extends State<HomeCalendarView> {
         ],
       ),
       bottomNavigationBar: _buildBottomNavigationBar(),
+      
     );
   }
 

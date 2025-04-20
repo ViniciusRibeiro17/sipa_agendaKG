@@ -9,8 +9,8 @@ class RegisterView extends StatelessWidget {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final TextEditingController confirmPasswordController =
-        TextEditingController();
+    final TextEditingController confirmPasswordController = TextEditingController();
+    final _formKey = GlobalKey<FormState>();
 
     return Scaffold(
       backgroundColor: const Color(0xFFF9CBA1),
@@ -30,7 +30,9 @@ class RegisterView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
+            child: Form(
+              key: _formKey,
+              child:Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
@@ -38,7 +40,7 @@ class RegisterView extends StatelessWidget {
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 40),
-                TextField(
+                TextFormField(
                   controller: nameController,
                   decoration: InputDecoration(
                     labelText: 'Nome',
@@ -46,9 +48,17 @@ class RegisterView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+                  validator: (value){
+                    if(value == null || value.isEmpty){
+                      return 'Digite seu nome:';
+                    }
+                    else{
+                      return null;
+                    }
+                  },
                 ),
                 const SizedBox(height: 20),
-                TextField(
+                TextFormField(
                   controller: emailController,
                   decoration: InputDecoration(
                     labelText: 'E-mail',
@@ -56,9 +66,18 @@ class RegisterView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+                  validator: (value) {
+                      if (value == null) {
+                        return 'Digite seu email';
+                      }
+                      if (!value.contains('@') || !value.contains('.')) {
+                        return 'Digite um e-mail válido';
+                      }
+                      return null;
+                    },
                 ),
                 const SizedBox(height: 20),
-                TextField(
+                TextFormField(
                   controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
@@ -67,9 +86,20 @@ class RegisterView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+                  validator: (value){
+                    if(value == null || value.isEmpty){
+                      return 'Digite sua senha:';
+                    }
+                    else if(value.length < 6){
+                      return 'a senha deve conter pelo menos 6 caracteres.';
+                    }
+                    else{
+                      return null;
+                    }
+                  },
                 ),
                 const SizedBox(height: 20),
-                TextField(
+                TextFormField(
                   controller: confirmPasswordController,
                   obscureText: true,
                   decoration: InputDecoration(
@@ -78,16 +108,29 @@ class RegisterView extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                   ),
+                  validator: (value){
+                    if(value == null || value.isEmpty){
+                      return 'Confirme sua senha:';
+                    }
+                    else if(value != passwordController.text){
+                      return 'As senhas não são iguais';
+                    }
+                    else{
+                      return null;
+                    }
+                  },
                 ),
                 const SizedBox(height: 40),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomeCalendarView(),
-                      ),
-                    );
+                    if (_formKey.currentState!.validate()) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeCalendarView(),
+                          ),
+                        );
+                      }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF7B5EA7),
@@ -110,6 +153,7 @@ class RegisterView extends StatelessWidget {
                 ),
               ],
             ),
+          ),
           ),
         ),
       ),
