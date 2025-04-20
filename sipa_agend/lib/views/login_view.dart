@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'calendar_view.dart';
+import 'home_calendar_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -12,8 +12,16 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF9CBA1),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF7B5EA7),
-        title: const Text('Login'),
+        backgroundColor: const Color(
+          0xFFF9CBA1,
+        ), // mesma cor do fundo para sumir
+        elevation: 0, // sem sombra
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -25,7 +33,8 @@ class LoginView extends StatelessWidget {
                 const Text(
                   'Faça seu Login',
                   style: TextStyle(
-                    fontSize: 28,
+                    color: Colors.black,
+                    fontSize: 32,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -55,23 +64,35 @@ class LoginView extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => const CalendarView()),
+                      MaterialPageRoute(
+                        builder: (context) => const HomeCalendarView(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF7B5EA7),
-                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 50,
+                      vertical: 15,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: const Text('Entrar'),
+                  child: const Text(
+                    'Entrar',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 0.5),
                 TextButton(
                   onPressed: () {},
                   child: const Text('Esqueceu a senha?'),
-                )
+                ),
               ],
             ),
           ),

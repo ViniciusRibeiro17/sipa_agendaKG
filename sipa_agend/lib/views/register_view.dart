@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'calendar_view.dart';
+import 'home_calendar_view.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
@@ -9,13 +9,22 @@ class RegisterView extends StatelessWidget {
     final TextEditingController nameController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final TextEditingController confirmPasswordController = TextEditingController();
+    final TextEditingController confirmPasswordController =
+        TextEditingController();
 
     return Scaffold(
       backgroundColor: const Color(0xFFF9CBA1),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF7B5EA7),
-        title: const Text('Cadastro'),
+        backgroundColor: const Color(
+          0xFFF9CBA1,
+        ), // mesma cor do fundo para sumir
+        elevation: 0, // sem sombra
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -26,10 +35,7 @@ class RegisterView extends StatelessWidget {
               children: [
                 const Text(
                   'Crie sua Conta',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 40),
                 TextField(
@@ -78,17 +84,29 @@ class RegisterView extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => const CalendarView()),
+                      MaterialPageRoute(
+                        builder: (context) => const HomeCalendarView(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF7B5EA7),
-                    padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 50,
+                      vertical: 15,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  child: const Text('Cadastrar'),
+                  child: const Text(
+                    'Cadastrar',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),

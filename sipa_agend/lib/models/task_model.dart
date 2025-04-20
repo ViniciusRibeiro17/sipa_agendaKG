@@ -1,7 +1,19 @@
-class Task {
+class TaskModel {
   final String title;
   final String description;
-  final DateTime date;
+  final bool isCompleted;
 
-  Task({required this.title, required this.description, required this.date});
+  TaskModel({
+    required this.title,
+    required this.description,
+    this.isCompleted = false,
+  });
+
+  TaskModel copyWith({String? title, String? description, bool? isCompleted}) {
+    return TaskModel(
+      title: title ?? this.title,
+      description: description ?? this.description,
+      isCompleted: isCompleted ?? this.isCompleted,
+    );
+  }
 }

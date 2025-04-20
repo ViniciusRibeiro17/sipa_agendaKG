@@ -17,25 +17,19 @@ class HomeView extends StatelessWidget {
               const Text(
                 'Agenda Sipá',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 35,
                   fontWeight: FontWeight.bold,
                   color: Colors.deepOrange,
                 ),
               ),
               const SizedBox(height: 20),
-              Image.asset(
-                'assets/logo.png',
-                height: 150,
-              ),
-              const SizedBox(height: 20),
+              Image.asset('assets/logo.png', height: 150),
+              const SizedBox(height: 5),
               const Text(
                 'Bem-Vindo!',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -45,45 +39,52 @@ class HomeView extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF7B5EA7),
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 40,
+                    vertical: 10,
+                  ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(28),
                   ),
                 ),
                 child: const Text(
                   'Entrar na Conta',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 18,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const RegisterView()),
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterView(),
+                    ),
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF7B5EA7),
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 50,
+                    vertical: 10,
+                  ),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(28),
                   ),
                 ),
                 child: const Text(
                   'Cadastre-se',
                   style: TextStyle(
-                    color: Colors.yellow,
-                    fontSize: 18,
+                    color: Colors.white,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
               TextButton(
                 onPressed: () {},
                 child: const Text(
