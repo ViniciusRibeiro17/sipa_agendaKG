@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "369228791667",
+    "project_id": "sipaagenda",
+    "storage_bucket": "sipaagenda.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369228791667:android:0a559089eae1574d220f06",
+        "android_client_info": {
+          "package_name": "com.example.sipa_agend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw1IUVN-l99HjTXdNVc356jy0WKXWbrFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

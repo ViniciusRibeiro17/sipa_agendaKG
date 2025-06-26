@@ -1,0 +1,30 @@
+name: sipa_agend
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.3 <4.0.0' # Atualizado para uma versão mais recente do SDK
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  cloud_firestore: ^4.15.8
+  equatable: ^2.0.5
+  intl: ^0.19.0
+  table_calendar: ^3.0.9
+  flutter_bloc: ^8.1.3
+  provider: ^6.1.1
+  google_fonts: ^6.2.1 # Adicionado google_fonts
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0 # Atualizado flutter_lints
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
