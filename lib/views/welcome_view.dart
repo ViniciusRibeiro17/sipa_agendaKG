@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '../main.dart'; // Importa para ter acesso às cores do tema
+import 'package:sipa_agend/views/help_page_view.dart';
+import '../main.dart';
+import 'login_view.dart';
+import 'register_view.dart'; // Importa para ter acesso às cores do tema
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
@@ -7,68 +10,104 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Agenda Sipá',
-                  style: TextStyle(
-                    fontFamily: 'Serif',
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[800],
-                  ),
+      backgroundColor: const Color(0xFFF9CBA1),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Agenda Sipá',
+                style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepOrange,
+                
                 ),
-                const SizedBox(height: 30),
-                Image.asset('assets/logo.png', height: 180),
-                const SizedBox(height: 30),
-                const Text(
-                  'Bem-Vindo!',
-                  style: TextStyle(
-                    fontSize: 42,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Serif',
-                  ),
-                ),
-                const SizedBox(height: 40),
-                ElevatedButton(
+              ),
+              const SizedBox(height: 20),
+              Image.asset('assets/logo.png', height: 170),
+              const SizedBox(height: 5),
+              const Text(
+                'Bem-Vindo!',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20),
+
+              // Botão: Entrar na Conta
+              SizedBox(
+                width: 200,
+                child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/login');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const LoginView()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: sipaPurple,
-                      minimumSize: const Size(double.infinity, 50)),
-                  child: const Text('Entrar na Conta'),
-                ),
-                const SizedBox(height: 15),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/register');
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: sipaPurple,
-                      minimumSize: const Size(double.infinity, 50)),
-                  child: const Text('Cadastre-se'),
-                ),
-                const SizedBox(height: 20),
-                TextButton(
-                  onPressed: () {
-                    // TODO: Implementar a tela de ajuda
-                  },
+                    backgroundColor: const Color(0xFF7B5EA7),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                  ),
                   child: const Text(
-                    'Ajuda',
+                    'Entrar na Conta',
                     style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Colors.black54,
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+
+              const SizedBox(height: 10),
+
+              // Botão: Cadastre-se
+              SizedBox(
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const RegisterView()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF7B5EA7),
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                  ),
+                  child: const Text(
+                    'Cadastre-se',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              // Botão: Ajuda
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HelpPageView()));
+                },
+                child: const Text(
+                  'Ajuda',
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

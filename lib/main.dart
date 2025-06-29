@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           colorScheme: const ColorScheme.light(
             primary: sipaOrange,
             secondary: sipaPurple,
-            background: sipaLightPeach,
+            surface: sipaLightPeach,
             onPrimary: Colors.white,
             onSecondary: Colors.white,
           ),

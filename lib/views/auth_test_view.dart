@@ -68,7 +68,7 @@ class _AuthTestViewState extends State<AuthTestView> {
                       final email = _emailController.text.trim();
                       final password = _passwordController.text.trim();
                       authBloc.add(
-                        RegisterUser(username: email, password: password),
+                        RegisterUser(displayName: email, email: email, password: password),
                       );
                     },
                     child: const Text('Register with Email'),

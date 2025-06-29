@@ -213,41 +213,76 @@ class _HomeCalendarViewState extends State<HomeCalendarView> {
   }
 
   Widget _buildTaskCard(TaskModel task) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      elevation: 2,
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
-        leading: Checkbox(
-          value: task.isCompleted,
-          onChanged: (bool? newValue) {
-            if (newValue != null) {
-              context.read<TaskService>().updateTask(
-                task.copyWith(isCompleted: newValue),
-              );
-            }
-          },
-          shape: const CircleBorder(),
-          activeColor: Colors.black,
-        ),
-        title: Text(
-          task.title,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            decoration: task.isCompleted ? TextDecoration.lineThrough : null,
-          ),
-        ),
-        subtitle: Text(task.description),
-        trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: () => _navigateToTaskDetail(task),
-        onLongPress: () => _showDeleteConfirmationDialog(task),
+  final imagens = {
+    'fogao': 'fogao.png',
+    'varrer': 'varrer.png',
+    'lixo': 'lixo.png',
+    'louça': 'pia.png',
+  };
+
+  final nomeTarefa = task.title.toLowerCase();
+  final nomeArquivo = imagens[nomeTarefa];
+  final mostrarImagem = nomeArquivo != null;
+  final caminhoImagem = 'assets/$nomeArquivo';
+
+  return Card(
+    margin: const EdgeInsets.symmetric(vertical: 8.0),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+    elevation: 2,
+    child: ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      leading: Checkbox(
+        value: task.isCompleted,
+        onChanged: (bool? newValue) {
+          if (newValue != null) {
+            context.read<TaskService>().updateTask(
+              task.copyWith(isCompleted: newValue),
+            );
+          }
+        },
+        shape: const CircleBorder(),
+        activeColor: Colors.black,
       ),
-    );
-  }
+      title: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  task.title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    decoration: task.isCompleted
+                        ? TextDecoration.lineThrough
+                        : null,
+                  ),
+                ),
+                Text(task.description),
+              ],
+            ),
+          ),
+          if (mostrarImagem)
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                caminhoImagem,
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+              ),
+            ),
+        ],
+      ),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+      onTap: () => _navigateToTaskDetail(task),
+      onLongPress: () => _showDeleteConfirmationDialog(task),
+    ),
+  );
+}
+
 
   Widget _buildBottomNavBar() {
     return BottomNavigationBar(

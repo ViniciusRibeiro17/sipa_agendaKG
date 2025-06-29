@@ -74,6 +74,16 @@ class _RegisterViewState extends State<RegisterView> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Align(
+    alignment: Alignment.centerLeft,
+    child: IconButton(
+      icon: const Icon(Icons.arrow_back),
+      color: Colors.black87,
+      onPressed: () {
+        Navigator.pop(context); // Volta para a tela anterior (HomeView)
+      },
+    ),
+  ),
                   const CircleAvatar(
                     radius: 50,
                     backgroundColor: sipaOrange,
