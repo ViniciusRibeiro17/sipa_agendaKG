@@ -104,7 +104,8 @@ class WelcomeView extends StatelessWidget {
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                     color: Colors.black,
-                  ),
+                  )
+                  
                 ),
               ),
             ],

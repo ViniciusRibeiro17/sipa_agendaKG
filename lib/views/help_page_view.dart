@@ -28,7 +28,7 @@ class HelpPageView extends StatelessWidget {
             SizedBox(height: 10),
             Text('- Se você ainda não tem uma conta, clique em "Cadastre-se".'),
             SizedBox(height: 10,),
-            Text('- Para quaisquer outras duvidas ou problemas, entre em contato com um dos criadores: r187635@dac.unicamp.br ou n173762@dac.unicamp.br')
+            Text('- Para quaisquer outras dúvidas ou problemas, entre em contato com um dos criadores: r187635@dac.unicamp.br ou n173762@dac.unicamp.br')
           ],
         ),
       ),
