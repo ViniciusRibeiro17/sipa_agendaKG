@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TaskListView extends StatelessWidget {
-  const TaskListView({Key? key}) : super(key: key);
+  const TaskListView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,9 @@ class TaskListView extends StatelessWidget {
               color: Color(0xFFFFA500),
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(32)),
             ),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   'Hoje',
                   style: TextStyle(
@@ -51,10 +51,10 @@ class TaskListView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
             child: Row(
-              children: const [
+              children: [
                 Text(
                   'Tarefas',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

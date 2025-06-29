@@ -28,3 +28,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/logo.png
+    - assets/pia.png
+    - assets/varrer.png
+    - assets/fogao.png
+    - assets/lixo.png
